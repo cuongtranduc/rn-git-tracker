@@ -1,19 +1,31 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { Provider } from 'react-redux';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
+import store from './app/store';
+import HomeScreen from './app/screens/Home';
+import UserSCreen from './app/screens/Users';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+const AppNavigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
   },
+  Users: {
+    screen: UserSCreen,
+  }
+}, {
+  headerMode: 'none',
+  navigationOptions: {
+    headerVisible: false,
+  }
 });
+
+const AppContainer = createAppContainer(AppNavigator);
+
+const App = () => (
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>
+);
+
+export default App;

@@ -26,7 +26,8 @@ function Home({
   page,
   username,
   loading,
-  totalRepo
+  totalRepo,
+  navigation
 }) {
   useEffect(() => {
     getRepositories();
@@ -59,6 +60,7 @@ function Home({
             repositores={repositories}
             totalRepo={totalRepo}
             loadMoreRepo={_loadMoreRepo}
+            navigation={navigation}
           />
         }
       </Content>

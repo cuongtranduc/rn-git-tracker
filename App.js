@@ -10,14 +10,19 @@ import UserSCreen from './app/screens/Users';
 const AppNavigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
+    navigationOptions: {
+      header: null
+    }
   },
   Users: {
     screen: UserSCreen,
-  }
-}, {
-  headerMode: 'none',
-  navigationOptions: {
-    headerVisible: false,
+    navigationOptions: ({ navigation }) => ({
+      title: `${navigation.state.params.projectName} Stagazer List`,
+      headerTitleStyle : {textAlign: 'center',alignSelf:'center'},
+        headerStyle:{
+            backgroundColor:'white',
+        },
+    })
   }
 });
 

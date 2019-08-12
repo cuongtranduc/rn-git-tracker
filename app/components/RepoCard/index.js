@@ -1,11 +1,19 @@
 import React, { memo } from 'react';
 import { Card, CardItem, Text, Icon, Left } from 'native-base';
-import { FlatList } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 
 const RepoCard = memo(
 ({
-  repo
+  repo,
+  navigation
 }) => {
+  const _onPress = () => {
+    navigation.navigate(
+      "Users",
+      { projectName: repo.name, stargazersUrl: repo.stargazersUrl }
+    );
+  }
+
   return (
     <Card style={{ backgroundColor: '#12161C' }}>
       <CardItem>
@@ -16,7 +24,9 @@ const RepoCard = memo(
           <Text>{repo.language ?? 'No Language'}</Text>
         </Left>
         <Icon name="star" style={{ color: 'orange' }}/>
-        <Text>{repo.stagazersCount}</Text>
+        <TouchableOpacity onPress={_onPress}>
+          <Text>{repo.stagazersCount}</Text>
+        </TouchableOpacity>
       </CardItem>
     </Card>
   )

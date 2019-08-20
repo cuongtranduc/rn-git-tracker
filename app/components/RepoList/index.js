@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     color: '#444',
     fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'serif',
+    // fontFamily: 'serif',
   },
   header: {
     paddingVertical: 10,
@@ -98,6 +98,6 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 22,
     fontWeight: 'bold',
-    fontFamily: 'serif',
+    // fontFamily: 'serif',
   }
 })
